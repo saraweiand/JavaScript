@@ -20,12 +20,28 @@ let listaDeTarefas = [
 ]
 
 function mostrarDetalhesTarefa(tarefa){
-    let stringTarefa = `Tarefa ${tarefa.id} - ${tarefa.descricao} (Prioridade: ${tarefa.prioridade}, Concluída: ${tarefa.concluida})`
+    const statusText = tarefa.concluida ? "Sim" : "Não";
+    let stringTarefa = `Tarefa ${tarefa.id} - ${tarefa.descricao} (Prioridade: ${tarefa.prioridade}, Concluída: ${statusText})`
     return stringTarefa
 }
 
 function marcarTarefaComoConcluida(tarefa, statusConclusao){
-    let alterarStatus = statusConclusao.concluida
-    let stringTarefaAlterada = `Tarefa ${tarefa.id} agora está ${tarefa.concluida}."`
+    tarefa.concluida = statusConclusao
+    const mensagemStatus = tarefa.concluida ? "Concluída" : "Pendente";
+    let stringTarefaAlterada = `Tarefa ${tarefa.id} agora está ${mensagemStatus}.`
     return stringTarefaAlterada
+}
+
+console.log("--- Status Inicial das Tarefas ---");
+for(const tarefa of listaDeTarefas){
+    console.log(mostrarDetalhesTarefa(tarefa))
+}
+
+console.log("\n--- Atualizando Status das Tarefas ---")
+console.log(marcarTarefaComoConcluida(listaDeTarefas[1], true))
+console.log(marcarTarefaComoConcluida(listaDeTarefas[2], false))
+
+console.log("\n--- Status Final das Tarefas ---");
+for(const tarefa of listaDeTarefas){
+    console.log(mostrarDetalhesTarefa(tarefa))
 }
