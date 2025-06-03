@@ -1,3 +1,13 @@
+/*
+* EXERCÍCIO 2: Catálogo de Produtos Simples
+*
+* OBJETIVO:
+* - Criar um array de objetos 'produtos' com 'id', 'nome', 'preco' e 'disponivel'.
+* - Criar uma função anônima 'listarProdutosDisponiveis' que filtra produtos com 'disponivel: true'.
+* - Criar uma função 'formatarProduto' que retorna uma string formatada do produto.
+* - Listar produtos disponíveis, formatá-los e exibi-los no console.
+*/
+
 let produtos = [
     {
         id: 1,

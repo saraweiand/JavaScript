@@ -1,3 +1,13 @@
+/*
+* EXERCÍCIO 1: Gerenciamento de Notas de Alunos
+*
+* OBJETIVO:
+* - Criar um array de objetos 'alunos', onde cada aluno tem 'nome' e 'notas'.
+* - Criar uma função 'calcularMediaAluno' que recebe um objeto aluno e retorna sua média.
+* - Usar um loop para iterar sobre os alunos, calcular e exibir o nome e a média formatada de cada um.
+*/
+
+
 let alunos = [
     {
         nome:'Sara',

@@ -1,3 +1,13 @@
+/*
+* EXERCÍCIO 3 (Adaptado): Sistema de Pedidos Simples
+*
+* OBJETIVO:
+* - Criar um array de objetos 'pedidos' com 'id', 'itens' e 'status'.
+* - Criar uma função 'exibirDetalhesPedido' que retorna uma string detalhada do pedido.
+* - Criar uma função 'atualizarStatusPedido' que modifica o 'status' de um pedido e retorna uma confirmação.
+* - Exibir status inicial, atualizar alguns pedidos e depois exibir o status final para verificar as mudanças.
+*/
+
 const pedidos = [
     {
         id: 1,
@@ -16,12 +26,15 @@ const pedidos = [
     },
 ]
 
-function exibirDetalhesPedido(pedidos){
-    const pedidoAtual = pedidos
-    let pedidoFormatado = `ID: ${pedidoAtual.id} - Itens: ${pedidoAtual.itens.join(', ')} - Status: ${pedidoAtual.status}`
+// FORMATANDO O RETORNO DA STRING
+
+function exibirDetalhesPedido(pedido){
+    let pedidoFormatado = `ID: ${pedido.id} - Itens: ${pedido.itens.join(', ')} - Status: ${pedido.status}`
 
     return pedidoFormatado
 }
+
+// ALTERANDO A STRING E STATUS DO PEDIDO
 
 let novoStatus = "Em processamento"
 
@@ -32,9 +45,16 @@ function atualizarStatusPedido(pedidoParaAtualizar, novoStatus){
     return novoStatusString
 }
 
-const detalhesPedido = exibirDetalhesPedido(pedidos)
+console.log("--- Status Inicial dos Pedidos ---");
+for(const pedido of pedidos){
+    console.log(exibirDetalhesPedido(pedido))
+}
 
-for(const pedidoAntesDaAlteracao of detalhesPedido){
-    const stringAntes = exibirDetalhesPedido(pedidoAntesDaAlteracao)
-    console.log(stringAntes)
+console.log("\n--- Atualizando Status de Pedidos ---");
+console.log(atualizarStatusPedido(pedidos[0], "Em processamento"));
+console.log(atualizarStatusPedido(pedidos[2], "Em processamento"));
+
+console.log("\n--- Status Final dos Pedidos ---");
+for (const pedido of pedidos) { 
+    console.log(exibirDetalhesPedido(pedido));
 }
